@@ -52,7 +52,8 @@ app.use(express.static(path.join(__dirname, "../dist")));
 
 
 //ADDING THE LISTENER
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 5000;
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 5000;
 const server = app.listen(port, () => {
   console.log("HTTP listening on:" + port);
 });
